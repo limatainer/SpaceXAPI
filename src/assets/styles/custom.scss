@@ -1,0 +1,12 @@
+$theme-colors: ('primary': #ff6398,
+  'dark': #080305,
+
+);
+
+$body-bg: #080305;
+
+$body-color: #080305;
+
+$box-shadow: 0 .5rem 1rem rgba(255, 0, 166, 0.587);
+
+@import'~bootstrap/scss/bootstrap.scss';

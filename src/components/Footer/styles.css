@@ -1,0 +1,15 @@
+.footer {
+  margin-top: auto;
+  color: #fff;
+}
+
+.footer span {
+  font-weight: 500;
+  font-size: 17px;
+
+}
+
+.icone-awesome {
+  width: 30px;
+  height: 30px;
+}
