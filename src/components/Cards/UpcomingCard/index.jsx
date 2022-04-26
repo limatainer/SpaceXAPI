@@ -1,24 +1,24 @@
-import SpaceMission from "../../graphql"
+import SpaceUpcomingMission from "./graphql"
 import React, { useState, useEffect } from 'react';
 
 import './styles.css'
 
-export default function Past() {
+export default function Future() {
   const [data, setData] = useState([])
-  const loadSpaceMission = async () => {
-    const spaceMissions = await SpaceMission.getSpaceMission(4);
+  const loadUpcomingMission = async () => {
+    const spaceMissions = await SpaceUpcomingMission.getUpMission(4);
     setData(spaceMissions);
   }
 
   useEffect(() => {
-    loadSpaceMission();
+    loadUpcomingMission();
   }, [])
 
   console.log("data", data)
   return (
     <>
       <div className='container'>
-        <h1>Past Launches</h1>
+        <h1>Future Launches</h1>
         <br />
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {data.map((item, id) => (
@@ -31,10 +31,9 @@ export default function Past() {
 
                 <div className='card-body'>
                   <p>{item.id}</p>
-                  <p>{item.launch_success}</p>
-                  <h2>{item.rocket.rocket_name}</h2>
-                  <h4>{item.mission_name}</h4>
-                  <h4>{item.launch_year}</h4>
+                  <h5>{item.rocket.rocket_name}</h5>
+                  <h6>{item.mission_name}</h6>
+
                 </div>
               </div>
             </>
