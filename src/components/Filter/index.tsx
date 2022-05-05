@@ -9,28 +9,30 @@ const rockets = [
 ]
 
 export default function Filter() {
-  const [busca, setBusca] = useState('')
+  const [busca, setBusca] = useState('');
+  const [rocketList, setRocketList] = useState(['']);
 
-
-  const filteredRockets = useMemo(() => {
+  useMemo(() => {
     const lowerBusca = busca.toLowerCase()
-    return rockets
-      .filter((rocket) => rocket.includes(lowerBusca));
+    const filteredRocket = rockets.filter((rocket) => rocket.toLowerCase().includes(lowerBusca));
+    console.log(filteredRocket)
+    setRocketList(filteredRocket);
 
-  }, [busca])
+  }, [busca]);
 
   return (
     <div className='container'>
       <h1>Filteres Rockets</h1>
       <div className="input-group input-group-sm mb-3">
         <input className="form-control"
+          style={{ color: "#fff" }}
           type="text"
           value={busca}
           onChange={(ev) => setBusca(ev.target.value)}
         />
       </div>
       <ul>
-        {filteredRockets.map((rocket) => (
+        {rocketList.map((rocket) => (
           <li key={rocket}>{rocket}</li>
         ))}
       </ul>
